@@ -227,6 +227,7 @@ newTrial("question",
         .print()
     ,
     newKey("NS")
+        .log()
         .wait()
 )
 
