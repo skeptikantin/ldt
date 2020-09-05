@@ -8,7 +8,7 @@ Sequence("intro",
     "instructions",
     randomize("training"),
     "intermission",
-    //sepWithN( "break" , randomize("experiment") , 50),
+    sepWithN( "break" , randomize("experiment") , 50),
     "question",
     SendResults(),
     "goodbye")
@@ -194,6 +194,16 @@ Template("test.csv", row =>
             .once()
             .wait()
      )
+        // log info
+        .log("Prime", row.Prime)
+        .log("Target", row.Target)
+        .log("Corr", row.Response)
+        .log("Frequency_prime", row.Frequency_prime)
+        .log("Nouniness_prime", row.Nouniness_prime)
+        .log("Length_prime", row.Length_prime)
+        .log("Length_target", row.Length_target)
+        .log("Condition", row.Condition)
+        .log("Nouniness_prime2", row.Nouniness_prime2)
     ,
     newTrial("break",
 
@@ -208,17 +218,6 @@ Template("test.csv", row =>
         newKey(" ")
             .wait()
     )
-        // log info
-        .log("Prime", row.Prime)
-        .log("Target", row.Target)
-        .log("Corr", row.Response)
-        .log("Frequency_prime", row.Frequency_prime)
-        .log("Nouniness_prime", row.Nouniness_prime)
-        .log("Length_prime", row.Length_prime)
-        .log("Length_target", row.Length_target)
-        .log("Condition", row.Condition)
-        .log("Nouniness_prime2", row.Nouniness_prime2)
-
 )
 
 newTrial("question",
