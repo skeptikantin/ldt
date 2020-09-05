@@ -140,7 +140,7 @@ newTrial("intermission",
         .center()
         .print()
     ,
-    newText("<p>Please place your index fingers on the F and J keys,<br/>and p ress SPACE when you are ready to proceed to the main experiment.</p>")
+    newText("<p>Please place your index fingers on the F and J keys,<br/>and press SPACE when you are ready to proceed to the main experiment.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
@@ -227,15 +227,14 @@ newTrial("question",
         .center()
         .print()
     ,
-    newText("<p>Press </p>"+
-        "<b>S</b> (sometimes) or <b>N</b> (never)<br/>" +
-        "(or SPACE if you don't want to answer.</p>")
+    newText("<p>Press <b>S</b> (sometimes) or <b>N</b> (never)<br/>" +
+        "(or X if you prefer not to answer.</p>")
         .css("font-size", "1.5em")
         .css("font-family", "Verdana")
         .center()
         .print()
     ,
-    newKey("NS ")
+    newKey("NSX")
         .log()
         .wait()
 )
@@ -245,13 +244,13 @@ newTrial("question",
 SendResults()
 
 newTrial("goodbye",
-    newText("<p>Thank you for your participation!</p>")
-        .css("font-size", "1.5em")
+    newText("<p>Thank you for your participation!<br/>Your time and effort is much appreciated.</p>")
+        .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
         .print()
     ,
-    newText("<a href='https://app.prolific.co/submissions/complete?cc=2593EB37'>Click here to validate your participation.</a>")
+    newText("<a href='https://app.prolific.co/submissions/complete?cc=2593EB37'>Click here to validate your participation and return to Prolific.</a>")
         .css("font-size", "1em")
         .css("font-family", "Verdana")
         .center()
