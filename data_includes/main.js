@@ -25,29 +25,18 @@ Header(
         .wait()
 )
 // Log the participant
-.log("Name", getVar("ParticipantName"))
+//.log("Name", getVar("ParticipantName"))
 .log("ParticipantID", PennController.GetURLParameter("participant") );
 
 
 newTrial("intro",
 
-    newText("<p>Welcome to this lexical decision task.")
+    newText("<p>Welcome to this lexical decision task!")
         .css("font-size", "1.5em")
         .css("font-family", "Verdana")
         .center()
         .print()
     ,
-    newText("<p>Please enter your name below and press enter:")
-        .css("font-size", "1em")
-        .css("font-family", "Verdana")
-        .center()
-        .print()
-    ,
-    newTextInput()
-        .center()
-        .print()
-        .wait()
-        .setVar("ParticipantName")
 )
 
 newTrial("instructions",
@@ -57,7 +46,7 @@ newTrial("instructions",
         "<p>Note that each word is briefly preceded by another word. Some people will be able to read<br/>" +
         "the first word, but it doesn't matter if you can.<br/>"+
         "You are to judge the <b>second</b> word that stays on screen.</p>"+
-        "<p>Please press the <b>J</b> key if the word is a word<br/>and the <b>F</b> key if it is not a word.</p>")
+        "<p>Please press the <b>J</b> key if the word is a word (think J resembles 'yes')<br/>and the <b>F</b> key if it is not a word (think F = 'false'.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
