@@ -134,7 +134,7 @@ newTrial("intermission",
     "<p>(<strong>F = false, not a word</strong> and <strong>J = yes, word</strong>)</p>" +
     "<p>You are now going to do the same for 136 words.</p>"+
     "<p>Because the task is demanding, the experiment will pause<br/>" +
-    "after 50 and again after 100 words,<br/>at which points you are welcome to take a break if you want.</p>")
+    "after 50 and again after 100 words (and right before the end),<br/>at which points you are welcome to take a break if you want.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
@@ -212,10 +212,10 @@ Template("test.csv", row =>
             .css("font-size", "1.5em")
             .css("font-family", "Verdana")
             .center()
-            .log()
             .print()
         ,
         newKey(" ")
+            .log()
             .wait()
     )
 )
@@ -230,6 +230,12 @@ newTrial("question",
     newText("<p>Press <b>S</b> (sometimes) or <b>N</b> (never)</p>" +
         "<p>(or X if you prefer not to answer).</p>")
         .css("font-size", "1.5em")
+        .css("font-family", "Verdana")
+        .center()
+        .print()
+    ,
+    newText("<p>After you press a buttom, please wait while results are sent to the server.</p>")
+        .css("font-size", "1em")
         .css("font-family", "Verdana")
         .center()
         .print()
