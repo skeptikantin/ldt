@@ -75,6 +75,7 @@ Template("training.csv", row =>
             .wait()
         ,
         // set up the conditions for the target word
+        newText("<p></p><p></p>")
         newText("Target", row.Target)
             .css("font-size", "2em")
             .css("font-family", "Verdana")
