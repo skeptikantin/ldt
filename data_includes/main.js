@@ -26,6 +26,8 @@ Header(
 )
 // Log the participant
 .log("Name", getVar("ParticipantName"))
+.log("ParticipantID", PennController.GetURLParameter("participant") );
+
 
 newTrial("intro",
 
@@ -242,7 +244,7 @@ newTrial("goodbye",
         .center()
         .print()
     ,
-    newText("<a href='https://www.sfla.ch/'>Click here to validate your participation.</a>")
+    newText("<a href='https://app.prolific.co/submissions/complete?cc=2593EB37'>Click here to validate your participation.</a>")
         .css("font-size", "1em")
         .css("font-family", "Verdana")
         .center()
