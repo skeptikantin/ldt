@@ -53,7 +53,7 @@ newTrial("instructions",
         .center()
         .print()
     ,
-    newText("<p>Click OK when you are ready to begin.</p>")
+    newText("<p>Press SPACE when you are ready to begin.</p>")
         .css("font-size", "1em")
         .css("font-family", "Verdana")
         .center()
@@ -65,7 +65,7 @@ newTrial("instructions",
     //    .print()
     //    .wait()
     ,
-    newKey("SPACE")
+    newKey(" ")
     .log()
     .once()
     .wait()
