@@ -83,11 +83,16 @@ Template("training.csv", row =>
             .log()
         ,
         // set up the response buttons
-        newSelector()
-            .keys(37, 39)
+        newKey("FJ")
             .log()
             .once()
             .wait()
+        //,
+        //newSelector()
+        //    .keys(37, 39)
+        //    .log()
+        //    .once()
+        //    .wait()
     )
 // log info
     .log("Corr", row.Response)
