@@ -135,7 +135,7 @@ newTrial("intermission",
     "<p>(<strong>F = false, not a word</strong> and <strong>J = yes, word</strong>)</p>" +
     "<p>You are now going to do the same for 136 words.</p>"+
     "<p>Because the task is demanding, the experiment will pause<br/>" +
-    "after 50 and again after 100 words (and right before the end),<br/>at which points you are welcome to take a break if you want.</p>")
+    "after every 34 words,<br/> at which points you are welcome to take a break if you want.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
