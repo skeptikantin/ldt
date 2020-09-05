@@ -1,5 +1,8 @@
 // Populate this area to include info etc.
 
+PennController.ResetPrefix(null)
+//PennController.Debug
+
 // Define the sequence of blocks in the trial
 Sequence("intro", "instructions", randomize("training"), SendResults(), "goodbye")
 
