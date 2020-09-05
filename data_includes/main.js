@@ -1,7 +1,7 @@
 // Populate this area to include info etc.
 
 PennController.ResetPrefix(null)
-// PennController.DebugOff();
+PennController.DebugOff();
 
 // Define the sequence of blocks in the trial
 Sequence("intro",
@@ -37,9 +37,10 @@ newTrial("intro",
         .center()
         .print()
     ,
-    newText("<p><strong>Voluntary participation:</strong>I understand that my participation in this study is voluntary.<br/>" +
+    newText("<p><strong>Voluntary participation:</strong> I understand that my participation in this study is voluntary.<br/>" +
     "<strong>Withdrawal:</strong> I can withdraw my participation at any time during the experiment.<br/>"+
-    "<strong>Risks:</strong> There are no risks involved, except perhaps a slight annoyance with flickering text.</p>")
+    "<strong>Risks:</strong> There are no risks involved, except perhaps a slight annoyance with flickering text.<br/>"+
+    "<strong>Equipment:</strong> I am participating from a device with a physical keyboard.</p>")
         .css("font-family", "Verdana")
         .print()
     ,
@@ -60,14 +61,14 @@ newTrial("instructions",
         "<p>Note that each word is briefly preceded by another word. Some people will be able to read<br/>" +
         "the first word, but it doesn't matter if you can.<br/>"+
         "You are to judge the <b>second</b> word that stays on screen.</p>"+
-        "<p>Please press the <b>J</b> key if the word is a word (think J resembles 'yes')<br/>and the <b>F</b> key if it is not a word (think F = 'false'.</p>")
+        "<p>Please press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
         .print()
     ,
     newText("<p>Press SPACE when you are ready to begin a short training phase.</p>")
-        .css("font-size", "1em")
+        .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
         .print()
