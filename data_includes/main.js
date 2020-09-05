@@ -58,7 +58,7 @@ newTrial("instructions",
         .css("font-family", "Verdana")
         .center()
         .print()
-    ,
+    //,
     //newButton("OK")
     //    .size(200)
     //    .center()
