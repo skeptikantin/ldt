@@ -58,8 +58,8 @@ newTrial("instructions",
 
     newText("<p>In this experiment, your task is to decide, as quickly and as accurately as possible<br/>"+
         "whether the word on the screen is a word of English or not.<br/></p>" +
-        "<p>Note that each word is briefly preceded by another word. Some people will be able to read<br/>" +
-        "the first word, but it doesn't matter if you can.<br/>"+
+        "<p>Each  word is briefly preceded by another word.<br/>" +
+        "Some people will be able to read the first word, <br/>but it doesn't matter if you can't.<br/>"+
         "You are to judge the <b>second</b> word that stays on screen.</p>"+
         "<p>Please press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
         .css("font-size", "1.2em")
@@ -67,7 +67,7 @@ newTrial("instructions",
         .center()
         .print()
     ,
-    newText("<p>Press SPACE when you are ready to begin a short training phase.</p>")
+    newText("<p>Place your index fingers on the J and F keys, respectively,<br>and press SPACE when you are ready to begin a short training phase.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
