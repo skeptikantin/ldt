@@ -89,7 +89,8 @@ Template("training.csv", row =>
             .center()
             .print()
         ,
-        newTimer("wait", 100)
+        // how long the prime is visible
+        newTimer("wait", 50)
             .start()
             .wait()
         ,
@@ -159,7 +160,8 @@ Template("test.csv", row =>
             .center()
             .print()
         ,
-        newTimer("wait", 100)
+        // how long prime is visible
+        newTimer("wait", 50)
             .start()
             .wait()
         ,
