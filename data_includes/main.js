@@ -1,13 +1,14 @@
 // Populate this area to include info etc.
 
 // Define the sequence of blocks in the trial
-//Sequence("intro", randomize("experiment"), SendResults(), "bye")
+Sequence("intro", "instructions", randomize("training"), SendResults(), "goodbye")
 
 // Header at the beginning of each trial
 Header(
     // use global variable element to store participants' name
     newVar("ParticipantName")
         .global()
+    ,
     // delay of 500ms before every trial
     newTimer(500)
         .start()
@@ -69,7 +70,7 @@ Template("training.csv", row =>
         newTimer(500)
             .start()
             .wait()
-
+        ,
         // set up the conditions for the target word
         newText("Target", row.Target)
             .css("font-size", "2em")
