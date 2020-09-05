@@ -193,7 +193,20 @@ Template("test.csv", row =>
         .log("Length_target", row.Length_target)
         .log("Condition", row.Condition)
         .log("Nouniness_prime2", row.Nouniness_prime2)
-)
+    ,
+    newTrial("break",
+
+        newText("<p>Well done, you've earned a little rest if you want.</p>" +
+            "Press SPACE to continue.")
+            .css("font-size", "1.5em")
+            .css("font-family", "Verdana")
+            .center()
+            .log()
+            .print()
+        ,
+        newKey(" ")
+            .wait()
+    )
 
 
 // now send results before the good-bye and validation message
