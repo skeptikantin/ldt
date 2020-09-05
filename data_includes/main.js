@@ -58,6 +58,7 @@ newTrial("instructions",
 
     newText("<p>In this experiment, your task is to decide<br/>"+
         "whether the word on the screen is a word of English or not.<br/></p>" +
+        "<p>Please respond as quickly, but as accurately as possible.</p>" +
         "<p>Each word is briefly preceded by another word.<br/>" +
         "Some people will be able to read the first word, <br/>but it doesn't matter if you can't.<br/>"+
         "You are to judge the <b>second</b> word that stays on screen.</p>"+
