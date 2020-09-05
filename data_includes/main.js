@@ -76,14 +76,22 @@ Template("training.csv", row =>
         ,
         // set up the prime
         newText("Prime", row.Prime)
+            .css("font-size", "2em")
+            .css("font-family", "Verdana")
+            .center()
             .print()
         ,
-        newTimer("wait", 200)
+        newTimer("wait", 100)
             .start()
             .wait()
         ,
         getText("Prime")
             .remove()
+        ,
+        // Set a 200ms break between
+        newTimer(200)
+            .start()
+            .wait()
         ,
         // Now show target
         newText("Target", row.Target)
