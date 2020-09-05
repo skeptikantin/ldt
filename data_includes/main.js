@@ -8,9 +8,10 @@ Sequence("intro",
     "instructions",
     randomize("training"),
     "intermission",
-    sepWithN( "break" , randomize("experiment") , 30),
+    //sepWithN( "break" , randomize("experiment") , 50),
+    "question",
     SendResults(),
-      "goodbye")
+    "goodbye")
 
 // Header at the beginning of each trial
 Header(
@@ -123,8 +124,9 @@ Template("training.csv", row =>
 newTrial("intermission",
     newText("<p>Well done, you should be good to go.<br/>" +
     "Remember: try to be as quick and as accurate as possible.</p>" +
-    "<p>The task is fun, but demanding, so there will be a break<br/>" +
-    "every 30 words.</p>")
+    "<p>You are now going to do the same for 136 words.</p>"+
+    "<p>Because the task is demanding, the experiment will pause<br/>" +
+    "after 50 and again after 100 words,<br/>at which points you can take a break if you want.</p>")
         .css("font-size", "1.5em")
         .css("font-family", "Verdana")
         .center()
@@ -208,6 +210,24 @@ Template("test.csv", row =>
             .wait()
     )
 )
+
+newTrial("question",
+    newText("<p>Were you sometimes able to read the first word?</p>")
+        .css("font-size", "1.5em")
+        .css("font-family", "Verdana")
+        .center()
+        .print()
+    ,
+    newText("<p>Press <b>S</b> (sometimes) or <b>N</b> (never)")
+        .css("font-size", "1.5em")
+        .css("font-family", "Verdana")
+        .center()
+        .print()
+    ,
+    newKey("NS")
+        .wait()
+)
+
 
 // now send results before the good-bye and validation message
 SendResults()
