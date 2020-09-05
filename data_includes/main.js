@@ -4,7 +4,7 @@ PennController.ResetPrefix(null)
 // PennController.DebugOff();
 
 // Define the sequence of blocks in the trial
-Sequence("consent", "intro",
+Sequence("intro",
     "instructions",
     randomize("training"),
     "intermission",
@@ -28,14 +28,6 @@ Header(
 //.log("Name", getVar("ParticipantName"))
 .log("ParticipantID", PennController.GetURLParameter("participant") );
 
-PennController( "consent" ,
-    newHtml("consent form", "consent.html")
-        .print()
-    ,
-    newButton("consent button", "By clicking this button I indicate my consent")
-        .print()
-        .wait()
-)
 
 newTrial("intro",
 
@@ -45,7 +37,20 @@ newTrial("intro",
         .center()
         .print()
     ,
-    newText("")
+    newText("<p><strong>Voluntary participation:</strong>I understand that my participation in this study is voluntary.<br/>" +
+    "<strong>Withdrawal:</strong> I can withdraw my participation at any time during the experiment.<br/>"+
+    "<strong>Risks:</strong> There are no risks involved, except perhaps a slight annoyance with flickering text.</p>")
+        .css("font-family", "Verdana")
+        .print()
+    ,
+    newText("<p>By hitting SPACE I consent to the above.")
+        .css("font-family", "Verdana")
+        .print()
+    ,
+    newKey(" ")
+        .log()
+        .once()
+        .wait()
 )
 
 newTrial("instructions",
