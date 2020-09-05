@@ -207,7 +207,7 @@ Template("test.csv", row =>
         newKey(" ")
             .wait()
     )
-
+)
 
 // now send results before the good-bye and validation message
 SendResults()
