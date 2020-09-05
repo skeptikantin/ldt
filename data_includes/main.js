@@ -44,8 +44,8 @@ newTrial("intro",
 newTrial("instructions",
 
     newText("<p>In this experiment, your task is to decide, as quickly and as accurately as possible<br/>"+
-        "whether the word on the screen is a word of English or not.</p>" +
-        "Note that each word is briefly preceded by another word. Some people will be able to read" +
+        "whether the word on the screen is a word of English or not.<br/>" +
+        "Note that each word is briefly preceded by another word. Some people will be able to read<br/>" +
         "the first word, but it doesn't matter if you can. You are to judge the second word that stays on screen.</p>"+
         "<p>Please press <b>RIGHT</b> if the word is a word and <b>LEFT</b> if it is not a word.</p>")
         .css("font-size", "1.2em")
@@ -59,12 +59,18 @@ newTrial("instructions",
         .center()
         .print()
     ,
-    newButton("OK")
-        .size(200)
-        .center()
-        .print()
-        .wait()
-    )
+    //newButton("OK")
+    //    .size(200)
+    //    .center()
+    //    .print()
+    //    .wait()
+    ,
+    newKey("SPACE")
+    .log()
+    .once()
+    .wait()
+
+)
 
 Template("training.csv", row =>
     newTrial("training",
