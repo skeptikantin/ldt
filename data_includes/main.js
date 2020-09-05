@@ -4,7 +4,7 @@ PennController.ResetPrefix(null)
 // PennController.DebugOff();
 
 // Define the sequence of blocks in the trial
-Sequence("intro",
+Sequence("consent", "intro",
     "instructions",
     randomize("training"),
     "intermission",
@@ -28,6 +28,14 @@ Header(
 //.log("Name", getVar("ParticipantName"))
 .log("ParticipantID", PennController.GetURLParameter("participant") );
 
+PennController( "consent" ,
+    newHtml("consent form", "consent.html")
+        .print()
+    ,
+    newButton("consent button", "By clicking this button I indicate my consent")
+        .print()
+        .wait()
+)
 
 newTrial("intro",
 
@@ -37,6 +45,7 @@ newTrial("intro",
         .center()
         .print()
     ,
+    newText("")
 )
 
 newTrial("instructions",
@@ -116,6 +125,7 @@ Template("training.csv", row =>
 newTrial("intermission",
     newText("<p>Well done, you should be good to go.<br/>" +
     "Remember: try to be as quick and as accurate as possible.</p>" +
+    "<p>(<strong>F = false, not a word</strong> and <strong>J = yes, word</strong></p>)" +
     "<p>You are now going to do the same for 136 words.</p>"+
     "<p>Because the task is demanding, the experiment will pause<br/>" +
     "after 50 and again after 100 words,<br/>at which points you can take a break if you want.</p>")
