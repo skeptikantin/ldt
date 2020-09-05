@@ -44,10 +44,11 @@ newTrial("intro",
 newTrial("instructions",
 
     newText("<p>In this experiment, your task is to decide, as quickly and as accurately as possible<br/>"+
-        "whether the word on the screen is a word of English or not.<br/>" +
-        "Note that each word is briefly preceded by another word. Some people will be able to read<br/>" +
-        "the first word, but it doesn't matter if you can. You are to judge the second word that stays on screen.</p>"+
-        "<p>Please press <b>RIGHT</b> if the word is a word and <b>LEFT</b> if it is not a word.</p>")
+        "whether the word on the screen is a word of English or not.<br/></p>" +
+        "<p>Note that each word is briefly preceded by another word. Some people will be able to read<br/>" +
+        "the first word, but it doesn't matter if you can.<br/>"+
+        "You are to judge the <b>second</b> word that stays on screen.</p>"+
+        "<p>Please press the <b>J</b> key if the word is a word and the <b>F</b> key if it is not a word.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
