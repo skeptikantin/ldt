@@ -8,7 +8,7 @@ Sequence("intro",
     "instructions",
     randomize("training"),
     "intermission",
-    sepWithN( "break" , randomize("experiment") , 50),
+    sepWithN( "break" , randomize("experiment") , 34),
     "question",
     SendResults(),
     "goodbye")
@@ -56,9 +56,9 @@ newTrial("intro",
 
 newTrial("instructions",
 
-    newText("<p>In this experiment, your task is to decide, as quickly and as accurately as possible<br/>"+
+    newText("<p>In this experiment, your task is to decide<br/>"+
         "whether the word on the screen is a word of English or not.<br/></p>" +
-        "<p>Each  word is briefly preceded by another word.<br/>" +
+        "<p>Each word is briefly preceded by another word.<br/>" +
         "Some people will be able to read the first word, <br/>but it doesn't matter if you can't.<br/>"+
         "You are to judge the <b>second</b> word that stays on screen.</p>"+
         "<p>Please press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
@@ -67,7 +67,7 @@ newTrial("instructions",
         .center()
         .print()
     ,
-    newText("<p>Place your index fingers on the J and F keys, respectively,<br>and press SPACE when you are ready to begin a short training phase.</p>")
+    newText("<p>Please place your index fingers on the J and F keys, respectively,<br>and press SPACE when you are ready to begin with a short training phase.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
