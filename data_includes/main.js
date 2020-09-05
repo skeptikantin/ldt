@@ -5,7 +5,7 @@
 
 // Header at the beginning of each trial
 Header(
-    // use globar variable element to store participants' name
+    // use global variable element to store participants' name
     newVar("ParticipantName")
         .global()
     // delay of 500ms before every trial
@@ -13,10 +13,19 @@ Header(
         .start()
         .wait()
 )
+// Log the participant
 .log("Name", getVar("ParticipantName"))
 
 newTrial("intro",
-    newText(<p>))
+
+    newText("<p>Welcome to this lexical decision task.")
+        .css("font-size", "1.5em")
+        .css("font-family", "Verdana")
+        .center()
+        .print()
+)
+
+
 
 Template("training.csv", row =>
     newTrial("training",
