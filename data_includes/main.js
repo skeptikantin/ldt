@@ -194,16 +194,6 @@ Template("test.csv", row =>
             .once()
             .wait()
      )
-        // log info
-        .log("Prime", row.Prime)
-        .log("Target", row.Target)
-        .log("Corr", row.Response)
-        .log("Frequency_prime", row.Frequency_prime)
-        .log("Nouniness_prime", row.Nouniness_prime)
-        .log("Length_prime", row.Length_prime)
-        .log("Length_target", row.Length_target)
-        .log("Condition", row.Condition)
-        .log("Nouniness_prime2", row.Nouniness_prime2)
     ,
     newTrial("break",
 
@@ -218,6 +208,17 @@ Template("test.csv", row =>
         newKey(" ")
             .wait()
     )
+        // log info
+        .log("Prime", row.Prime)
+        .log("Target", row.Target)
+        .log("Corr", row.Response)
+        .log("Frequency_prime", row.Frequency_prime)
+        .log("Nouniness_prime", row.Nouniness_prime)
+        .log("Length_prime", row.Length_prime)
+        .log("Length_target", row.Length_target)
+        .log("Condition", row.Condition)
+        .log("Nouniness_prime2", row.Nouniness_prime2)
+
 )
 
 newTrial("question",
@@ -227,8 +228,8 @@ newTrial("question",
         .center()
         .print()
     ,
-    newText("<p>Press <b>S</b> (sometimes) or <b>N</b> (never)<br/>" +
-        "(or X if you prefer not to answer.</p>")
+    newText("<p>Press <b>S</b> (sometimes) or <b>N</b> (never)</p>" +
+        "<p>(or X if you prefer not to answer).</p>")
         .css("font-size", "1.5em")
         .css("font-family", "Verdana")
         .center()
