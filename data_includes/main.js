@@ -89,7 +89,7 @@ Template("training.csv", row =>
             .remove()
         ,
         // Set a 200ms break between
-        newTimer(200)
+        newTimer(100)
             .start()
             .wait()
         ,
@@ -114,7 +114,9 @@ Template("training.csv", row =>
         //    .wait()
     )
 // log info
-    .log("Corr", row.Response)
+        .log("Prime", row.Prime)
+        .log("Target", row.Target)
+        .log("Corr", row.Response)
 )
 
 // now send results before the good-bye and validation message
