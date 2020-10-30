@@ -39,7 +39,7 @@ newTrial("intro",
     ,
     newText("<p><strong>Voluntary participation:</strong> I understand that my participation in this study is voluntary.<br/>" +
     "<strong>Withdrawal:</strong> I can withdraw my participation at any time during the experiment.<br/>"+
-    "<strong>Risks:</strong> There are no risks involved, except perhaps a slight annoyance with flickering text.<br/>"+
+    "<strong>Risks:</strong> There are no risks involved, except a slight annoyance with flickering text.<br/>"+
     "<strong>Equipment:</strong> I am participating from a device with a physical keyboard.</p>")
         .css("font-family", "Verdana")
         .print()
