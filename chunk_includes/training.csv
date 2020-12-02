@@ -1,4 +1,4 @@
-﻿Id,ExpId,Item,Correct
+﻿Id,ExpId,Item,Response
 train,zt,pillow,J
 train,zt,frame,J
 train,zt,slirp,F
