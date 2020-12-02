@@ -39,7 +39,7 @@ newTrial("intro",
     ,
     newText("<p><strong>Voluntary participation:</strong> I understand that my participation in this study is voluntary.<br/>" +
     "<strong>Withdrawal:</strong> I can withdraw my participation at any time during the experiment.<br/>"+
-    "<strong>Risks:</strong> There are no risks involved, except a slight annoyance with flickering text.<br/>"+
+    "<strong>Risks:</strong> There are no risks involved.<br/>"+
     "<strong>Equipment:</strong> I am participating from a device with a physical keyboard.</p>")
         .css("font-family", "Verdana")
         .print()
@@ -62,7 +62,6 @@ newTrial("instructions",
         "<p>Please press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
-        .center()
         .print()
     ,
     newText("<p>Please place your index fingers on the J and F keys, respectively,<br>and press SPACE when you are ready to begin with a short training phase.</p>")
@@ -89,7 +88,7 @@ Template("training.csv", row =>
         // Now show target
         newText("<p></p>")
         ,
-        
+
         newText("Item", row.Item)
             .css("font-size", "2em")
             .css("font-family", "Verdana")
@@ -114,17 +113,13 @@ newTrial("intermission",
     "Remember: try to be as quick and as accurate as possible.</p>" +
     "<p>(<strong>F = false, not a word</strong> and <strong>J = yes, word</strong>)</p>" +
     "<p>You are now going to do the same for 99 more words.</p>"+
-    "<p>Because the task is demanding, the experiment will pause<br/>" +
-    "after every 33 words,<br/> at which points you are welcome to take a break if you want.</p>")
-        .css("font-size", "1.2em")
+    "<p>The experiment will pause after every 33 words,<br/>" +
+    "at which points you are welcome to take a break if you want.</p>")
         .css("font-family", "Verdana")
-        .center()
         .print()
     ,
     newText("<p>Please place your index fingers on the F and J keys,<br/>and press SPACE when you are ready to proceed to the main experiment.</p>")
-        .css("font-size", "1.2em")
         .css("font-family", "Verdana")
-        .center()
         .print()
     ,
     newKey(" ")
