@@ -97,13 +97,13 @@ Template("training.csv", row =>
             .log()
         ,
         // Set up response buttons
-        newKey("key", "F", "J")
+        newKey("key", "FJ")
             .log()
             .once()
             .wait()
         ,
         getKey("key")
-            .test.pressed(row.Response)
+            .test.pressed(row.Corr)
             .success(newText("success", "Correct!").css("font-color", "green").center().print())
             .failure(newText("failure", "Incorrect!").css("font-color", "red").center().print())
 
@@ -112,7 +112,7 @@ Template("training.csv", row =>
         .log("Id", row.Id)
         .log("ExpId", row.ExpId)
         .log("Item", row.Item)
-        .log("Correct", row.Correct)
+        .log("Corr", row.Corr)
 )
 
 newTrial("intermission",
@@ -160,7 +160,7 @@ Template("main.csv", row =>
         .log("Id", row.Id)
         .log("ExpId", row.ExpId)
         .log("Item", row.Item)
-        .log("Correct", row.Correct)
+        .log("Corr", row.Corr)
     ,
     newTrial("break",
 
