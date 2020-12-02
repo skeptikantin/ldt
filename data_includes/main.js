@@ -8,8 +8,8 @@ Sequence("intro",
     "instructions",
     randomize("training"),
     "intermission",
-    sepWithN( "break" , randomize("experiment") , 34),
-    "question",
+    sepWithN( "break" , randomize("experiment") , 33),
+    "debrief",
     SendResults(),
     "goodbye")
 
@@ -87,6 +87,9 @@ Template("training.csv", row =>
             .wait()
         ,
         // Now show target
+        newText("<p></p>")
+        ,
+        
         newText("Item", row.Item)
             .css("font-size", "2em")
             .css("font-family", "Verdana")
@@ -110,9 +113,9 @@ newTrial("intermission",
     newText("<p>Well done, you should be good to go.<br/>" +
     "Remember: try to be as quick and as accurate as possible.</p>" +
     "<p>(<strong>F = false, not a word</strong> and <strong>J = yes, word</strong>)</p>" +
-    "<p>You are now going to do the same for 44 more words.</p>"+
+    "<p>You are now going to do the same for 99 more words.</p>"+
     "<p>Because the task is demanding, the experiment will pause<br/>" +
-    "after every 34 words,<br/> at which points you are welcome to take a break if you want.</p>")
+    "after every 33 words,<br/> at which points you are welcome to take a break if you want.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
@@ -130,7 +133,7 @@ newTrial("intermission",
         .wait()
 )
 
-Template("test.csv", row =>
+Template("main.csv", row =>
     newTrial("experiment",
 
         // set up a timer so there is a x ms break between trials
@@ -138,28 +141,8 @@ Template("test.csv", row =>
             .start()
             .wait()
         ,
-        // set up the prime
-        newText("Prime", row.Prime)
-            .css("font-size", "2em")
-            .css("font-family", "Verdana")
-            .center()
-            .print()
-        ,
-        // how long prime is visible
-        newTimer("wait", 50)
-            .start()
-            .wait()
-        ,
-        getText("Prime")
-            .remove()
-        ,
-        // Set a 200ms break between
-        newTimer(100)
-            .start()
-            .wait()
-        ,
-        // Now show target
-        newText("Target", row.Target)
+        // Show item
+        newText("Item", row.Item)
             .css("font-size", "2em")
             .css("font-family", "Verdana")
             .center()
@@ -172,16 +155,9 @@ Template("test.csv", row =>
             .once()
             .wait()
      )
-        // log info
-        .log("Prime", row.Prime)
-        .log("Target", row.Target)
-        .log("Corr", row.Response)
-        .log("Frequency_prime", row.Frequency_prime)
-        .log("Nouniness_prime", row.Nouniness_prime)
-        .log("Length_prime", row.Length_prime)
-        .log("Length_target", row.Length_target)
-        .log("Condition", row.Condition)
-        .log("Nouniness_prime2", row.Nouniness_prime2)
+        .log("Id", row.Id)
+        .log("ExpId", row.ExpId)
+        .log("Correct", row.Correct)
     ,
     newTrial("break",
 
@@ -198,31 +174,30 @@ Template("test.csv", row =>
     )
 )
 
-newTrial("question",
-    newText("<p>Were you sometimes able to read the first word?</p>")
-        .css("font-size", "1.5em")
+newTrial("debrief",
+
+    newText("<p>That's (almost) it, thank you!</p>")
+        .css("font-size", "1.2em")
         .css("font-family", "Verdana")
-        .center()
         .print()
     ,
-    newText("<p>Press <b>S</b> (sometimes) or <b>N</b> (never)</p>" +
-        "<p>(or X if you prefer not to answer).</p>")
-        .css("font-size", "1.5em")
+
+    newText("<p>Please indicate your handedness (voluntary, but helpful for interpreting results):</p>")
         .css("font-family", "Verdana")
-        .center()
         .print()
     ,
-    newText("<p>After you press a buttom, please wait while results are sent to the server.</p>")
-        .css("font-size", "1em")
+    newScale("handedness", "right-handed", "left-handed", "no dominant hand", "rather not say")
         .css("font-family", "Verdana")
-        .center()
+        .settings.vertical()
         .print()
-    ,
-    newKey("NSX")
         .log()
+    ,
+    newButton("send", "Send results & proceed to verification link")
+        .size(300)
+        .center()
+        .print()
         .wait()
 )
-
 
 // now send results before the good-bye and validation message
 SendResults()
