@@ -31,16 +31,21 @@ Header(
 
 newTrial("intro",
 
-    newText("<p>Welcome to this lexical decision task!")
-        .css("font-size", "1.5em")
+    newText("<p>Welcome!")
+        .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .center()
         .print()
     ,
+    newText("<p><strong>Informed Consent</strong>:</p>")
+        .css("font-family", "Verdana")
+        .print()
+    ,
     newText("<p><strong>Voluntary participation:</strong> I understand that my participation in this study is voluntary.<br/>" +
-    "<strong>Withdrawal:</strong> I can withdraw my participation at any time during the experiment.<br/>"+
-    "<strong>Risks:</strong> There are no risks involved.<br/>"+
-    "<strong>Equipment:</strong> I am participating from a device with a physical keyboard.</p>")
+        "<strong>Withdrawal:</strong> I can withdraw my participation at any time during the experiment.<br/>"+
+        "<strong>Risks:</strong> There are no risks involved.<br/>"+
+        "<strong>Equipment:</strong> I am participating from a device with a <strong>physical keyboard</strong>.<br/>"+
+        "<strong>Environment:</strong> I participate from a quiet environment and can work uninterrupted.</p>")
         .css("font-family", "Verdana")
         .print()
     ,
@@ -106,7 +111,10 @@ Template("training.csv", row =>
             .test.pressed(row.Corr)
             .success(newText("success", "Correct!").css("font-color", "green").center().print())
             .failure(newText("failure", "Incorrect!").css("font-color", "red").center().print())
-
+        ,
+        newTimer(500)
+            .start()
+            .wait()
     )
 // log info
         .log("Id", row.Id)
