@@ -31,10 +31,9 @@ Header(
 
 newTrial("intro",
 
-    newText("<p>Welcome!")
+    newText("<p>Welcome!</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
-        .center()
         .print()
     ,
     newText("<p><strong>Informed Consent</strong>:</p>")
@@ -109,8 +108,8 @@ Template("training.csv", row =>
         ,
         getKey("key")
             .test.pressed(row.Corr)
-            .success(newText("success", "Correct!").css("font-color", "green").center().print())
-            .failure(newText("failure", "Incorrect!").css("font-color", "red").center().print())
+            .success(newText("success", "<p>Correct!</p>").css("font-color", "green").center().print())
+            .failure(newText("failure", "<p>Incorrect!</p>").css("font-color", "red").center().print())
         ,
         newTimer(500)
             .start()
