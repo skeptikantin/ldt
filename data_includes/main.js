@@ -84,24 +84,25 @@ Template("training.csv", row =>
             .start()
             .wait()
         ,
-        // Now show target
-        newText("<p></p>")
+        // Blank line
+        newText("<p> </p>")
         ,
 
+        // Show item
         newText("Item", row.Item)
-            .css("font-size", "2em")
+            .css("font-size", "1.5em")
             .css("font-family", "Verdana")
             .center()
             .print()
             .log()
         ,
-        // set up the response buttons
-        newKey("FJ")
+        // Set up response buttons
+        newKey("key", "FJ")
             .log()
             .once()
             .wait()
         ,
-        getKey()
+        getKey("key")
             .test.pressed(row.Correct)
             .success(newText("success", "Correct!").css("font-color", "green").center().print())
             .failure(newText("failure", "Incorrect!").css("font-color", "red").center().print())
@@ -143,7 +144,7 @@ Template("main.csv", row =>
         ,
         // Show item
         newText("Item", row.Item)
-            .css("font-size", "2em")
+            .css("font-size", "1.5em")
             .css("font-family", "Verdana")
             .center()
             .print()
