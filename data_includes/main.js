@@ -257,7 +257,7 @@ newTrial("goodbye",
         .center()
         .print()
     ,
-    newText("<a href='https://app.prolific.co/submissions/complete?cc=2593EB37'>Click here to validate your participation and return to Prolific.</a>")
+    newText("<a href='https://sfla.ch'>Click here to validate your participation and return to Prolific.</a>")
         .css("font-size", "1em")
         .css("font-family", "Verdana")
         .center()
