@@ -59,15 +59,14 @@ newTrial("instructions",
     newText("<p>In this experiment, your task is to decide<br/>"+
         "whether the word on the screen is a word of English or not.<br/></p>" +
         "<p>Please respond as quickly, but as accurately as possible.</p>" +
-        "<p>Please press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
+        "<p>Press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
         .print()
     ,
-    newText("<p>Please place your index fingers on the J and F keys, respectively,<br>and press SPACE when you are ready to begin with a short training phase.</p>")
+    newText("<p>Please place your index fingers on the J and F keys, respectively,<br>and press SPACE when you are ready to begin the training phase.</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
-        .center()
         .print()
    ,
     newKey(" ")
@@ -101,6 +100,12 @@ Template("training.csv", row =>
             .log()
             .once()
             .wait()
+        ,
+        getKey("key")
+            .test.pressed(row.Correct)
+            .success(newText("success", "Correct!").css("font-color", "green").center().print())
+            .failure(newText("failure", "Incorrect!").css("font-color", "red").center().print())
+
     )
 // log info
         .log("Id", row.Id)
