@@ -59,9 +59,6 @@ newTrial("instructions",
     newText("<p>In this experiment, your task is to decide<br/>"+
         "whether the word on the screen is a word of English or not.<br/></p>" +
         "<p>Please respond as quickly, but as accurately as possible.</p>" +
-        "<p>Each word is briefly preceded by another word.<br/>" +
-        "Some people will be able to read the first word, <br/>but it doesn't matter if you can't.<br/>"+
-        "You are to judge the <b>second</b> word that stays on screen.</p>"+
         "<p>Please press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
@@ -89,28 +86,8 @@ Template("training.csv", row =>
             .start()
             .wait()
         ,
-        // set up the prime
-        newText("Prime", row.Prime)
-            .css("font-size", "2em")
-            .css("font-family", "Verdana")
-            .center()
-            .print()
-        ,
-        // how long the prime is visible
-        newTimer("wait", 50)
-            .start()
-            .wait()
-        ,
-        getText("Prime")
-            .remove()
-        ,
-        // Set a 200ms break between
-        newTimer(100)
-            .start()
-            .wait()
-        ,
         // Now show target
-        newText("Target", row.Target)
+        newText("Item", row.Item)
             .css("font-size", "2em")
             .css("font-family", "Verdana")
             .center()
@@ -124,9 +101,9 @@ Template("training.csv", row =>
             .wait()
     )
 // log info
-        .log("Prime", row.Prime)
-        .log("Target", row.Target)
-        .log("Corr", row.Response)
+        .log("Id", row.Id)
+        .log("ExpId", row.ExpId)
+        .log("Correct", row.Correct)
 )
 
 newTrial("intermission",
