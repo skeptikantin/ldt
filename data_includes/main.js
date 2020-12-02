@@ -60,17 +60,17 @@ newTrial("intro",
 
 newTrial("instructions",
 
+    newText("<p><strong>The judgement task</strong></p>")
+        .css("font-size", "1.2em")
+        .print()
+    ,
     newText("<p>In this experiment, your task is to decide<br/>"+
         "whether the word on the screen is a word of English or not.<br/></p>" +
         "<p>Please respond as quickly, but as accurately as possible.</p>" +
         "<p>Press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
-        .css("font-size", "1.2em")
-        .css("font-family", "Verdana")
         .print()
     ,
     newText("<p>Please place your index fingers on the J and F keys, respectively,<br>and press SPACE when you are ready to begin the training phase.</p>")
-        .css("font-size", "1.2em")
-        .css("font-family", "Verdana")
         .print()
    ,
     newKey(" ")
@@ -126,13 +126,13 @@ newTrial("intermission",
     newText("<p>Well done, you should be good to go.<br/>" +
     "Remember: try to be as quick and as accurate as possible.</p>" +
     "<p>(<strong>F = false, not a word</strong> and <strong>J = yes, word</strong>)</p>" +
-    "<p>You are now going to do the same for 99 more words.</p>"+
+    "<p>You are now going to do the same for 99 more words.<br/>(No feedback will be given.)</p>"+
     "<p>The experiment will pause after every 33 words,<br/>" +
     "at which points you are welcome to take a break if you want.</p>")
         .css("font-family", "Verdana")
         .print()
     ,
-    newText("<p>Please place your index fingers on the F and J keys,<br/>and press SPACE when you are ready to proceed to the main experiment.</p>")
+    newText("<p>Please place your index fingers on the F and J keys, respectively,<br/>and press SPACE when you are ready to start the main experiment.</p>")
         .css("font-family", "Verdana")
         .print()
     ,
@@ -173,7 +173,6 @@ Template("main.csv", row =>
 
         newText("<p>Well done, you've earned a little rest if you want.</p>" +
             "Press SPACE to continue.")
-            .css("font-size", "1.5em")
             .css("font-family", "Verdana")
             .print()
         ,
@@ -212,22 +211,22 @@ newTrial("debrief",
 SendResults()
 
 newTrial("goodbye",
-    newText("<p>Thank you for your participation!<br/>Your time and effort is much appreciated.</p>")
+    newText("<p>Thank you very much for your time and effort!</p>")
         .css("font-size", "1.2em")
         .css("font-family", "Verdana")
-        .center()
         .print()
     ,
-    newText("<a href='https://sfla.ch'>Click here to validate your participation and return to Prolific.</a>")
+    newText("<strong><a href='https://www.sfla.ch/'>Click here to return to Prolific to validate your participation.</a></strong>")
         .css("font-size", "1em")
-        .css("font-family", "Verdana")
-        .center()
         .print()
     ,
-    // not sure what this does, but it might be necessary
+    newText("<p><br/>You can contact the corresponding researcher <a href='https://www.sfla.ch/' target='_blank'>here</a> (opens new tab).</p>")
+        .css("font-size", ".8em")
+        .print()
+    ,
     newButton("void")
         .wait()
-)
+) // the good-bye message
 
 // Define additional functions:
     .setOption( "countsForProgressBar" , false )
