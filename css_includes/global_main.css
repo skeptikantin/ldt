@@ -33,6 +33,7 @@ p.practice-box {
     padding-bottom: 1em;
     font-size: small;
     text-align: center;
+    color: lightgrey;
 }
 span.retry {
     color: blue;

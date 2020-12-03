@@ -60,7 +60,7 @@ newTrial("intro",
 
 newTrial("instructions",
 
-    newText("<p><strong>The judgement task</strong></p>")
+    newText("<p><strong>The word decision task</strong></p>")
         .css("font-size", "1.2em")
         .print()
     ,
@@ -216,7 +216,7 @@ newTrial("goodbye",
         .css("font-family", "Verdana")
         .print()
     ,
-    newText("<strong><a href='https://www.sfla.ch/'>Click here to return to Prolific to validate your participation.</a></strong>")
+    newText("<strong><a href='https://app.prolific.co/submissions/complete?cc=878EA3AF'>Click here to return to Prolific to validate your participation.</a></strong>")
         .css("font-size", "1em")
         .print()
     ,
@@ -232,7 +232,7 @@ newTrial("goodbye",
     .setOption( "countsForProgressBar" , false )
 // Make sure the progress bar is full upon reaching this last (non-)trial
 
-// Function to include a break after 30 trials
+// Function to include a break after N trials
 function SepWithN(sep, main, n) {
     this.args = [sep,main];
 
