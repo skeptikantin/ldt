@@ -64,8 +64,8 @@ newTrial("instructions",
         .css("font-size", "1.2em")
         .print()
     ,
-    newText("<p>In this experiment, your task is to decide<br/>"+
-        "whether the word on the screen is a word of English or not.<br/></p>" +
+    newText("<p>In this experiment, your task is to decide whether<br/>"+
+        "the word on the screen is a word of English or not.<br/></p>" +
         "<p>Please respond as quickly, but as accurately as possible.</p>" +
         "<p>Press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
         .print()
@@ -190,8 +190,19 @@ newTrial("debrief",
         .css("font-family", "Verdana")
         .print()
     ,
-
-    newText("<p>Please indicate your handedness (voluntary, but helpful for interpreting results):</p>")
+    newText("<p><strong>What do you think the experiment was about?<br/>Anything else you'd like to tell us?</strong></p>")
+        .css("font-family", "Verdana")
+        .print()
+    ,
+    newTextInput("topic", "")
+        .settings.log()
+        .settings.lines(0)
+        .settings.size(400, 100)
+        .css("font-family", "Verdana")
+        .print()
+        .log()
+    ,
+    newText("<p>Please indicate your handedness (voluntary, but helpful for us):</p>")
         .css("font-family", "Verdana")
         .print()
     ,
