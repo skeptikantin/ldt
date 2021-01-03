@@ -190,7 +190,7 @@ newTrial("debrief",
         .css("font-family", "Verdana")
         .print()
     ,
-    newText("<p><strong>What do you think the experiment was about?<br/>Anything else you'd like to tell us?</strong></p>")
+    newText("<p><strong>Anything you'd like to tell us about your experience?</strong></p>")
         .css("font-family", "Verdana")
         .print()
     ,
@@ -202,7 +202,7 @@ newTrial("debrief",
         .print()
         .log()
     ,
-    newText("<p>Please indicate your handedness (voluntary, but helpful for us):</p>")
+    newText("<p>Please indicate your handedness (voluntary, but helpful for data analysis):</p>")
         .css("font-family", "Verdana")
         .print()
     ,
