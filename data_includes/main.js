@@ -170,7 +170,7 @@ Template("ph_main.csv", row =>
         .log("Zipf", row.Zipf)
         .log("Letter", row.Letter)
         .log("LetFreq", row.LetFreq)
-        .log("Group", row.Group)
+        .log("Group", row.Set)
     ,
     newTrial("break",
 

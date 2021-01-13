@@ -1,4 +1,4 @@
-﻿Item,Condition,Corr,Length,Zipf,Letter,LetFreq,Group
+﻿Item,Condition,Corr,Length,Zipf,Letter,LetFreq,Set
 actual,Word,J,5,5,a,high,1
 hardly,Word,J,6,5,a,high,1
 average,Word,J,7,5,a,high,1
