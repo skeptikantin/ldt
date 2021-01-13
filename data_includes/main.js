@@ -8,7 +8,7 @@ Sequence("intro",
     "instructions",
     randomize("training"),
     "intermission",
-    sepWithN( "break" , randomize("experiment") , 24),
+    sepWithN( "break" , randomize("experiment") , 20),
     "debrief",
     SendResults(),
     "goodbye")
@@ -126,8 +126,8 @@ newTrial("intermission",
     newText("<p>Well done, you should be good to go.<br/>" +
     "Remember: try to be as quick and as accurate as possible.</p>" +
     "<p>(<strong>F = false, not a word</strong> and <strong>J = yes, word</strong>)</p>" +
-    "<p>You are now going to do the same for 48 more words.<br/>(No feedback will be given.)</p>"+
-    "<p>The experiment will pause after 24 words,<br/>" +
+    "<p>You are now going to do the same for 60 more words.<br/>(No feedback will be given.)</p>"+
+    "<p>The experiment will pause after the 20th and the 40th word,<br/>" +
     "at which point you are welcome to take a break if you want.</p>")
         .css("font-family", "Verdana")
         .print()
@@ -142,7 +142,7 @@ newTrial("intermission",
         .wait()
 )
 
-Template("kg_main.csv", row =>
+Template("ph_main.csv", row =>
     newTrial("experiment",
 
         // set up a timer so there is a x ms break between trials
@@ -166,9 +166,11 @@ Template("kg_main.csv", row =>
      )
         .log("Item", row.Item)
         .log("Corr", row.Corr)
-        .log("ConcM", row.ConcM)
-        .log("LengthWord", row.LengthWord)
+        .log("Length", row.Length)
         .log("Zipf", row.Zipf)
+        .log("Letter", row.Letter)
+        .log("LetFreq", row.LetFreq)
+        .log("Group", row.Group)
     ,
     newTrial("break",
 
