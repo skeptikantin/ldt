@@ -230,7 +230,7 @@ newTrial("goodbye",
         .css("font-family", "Verdana")
         .print()
     ,
-    newText("<strong><a href='https://app.prolific.co/submissions/complete?cc=8689AEE0'>Click here to return to Prolific to validate your participation.</a></strong>")
+    newText("<strong><a href='https://app.prolific.co/submissions/complete?cc=8016C608'>Click here to return to Prolific to validate your participation.</a></strong>")
         .css("font-size", "1em")
         .print()
     ,
