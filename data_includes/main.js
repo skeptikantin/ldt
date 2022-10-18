@@ -26,9 +26,9 @@ Sequence("counter",
     "instructions",
     randomize("training"),
     "intermission",
-    //"experiment", // randomization is off for lextale
+    "experiment", // randomization is off for lextale
     // sepWithN( "break" , randomize("experiment") , 20),
-    sepWithN( "break" , "experiment" , 20),
+    // sepWithN( "break" , "experiment" , 20),
     "debrief",
     SendResults(),
     "goodbye")
@@ -40,7 +40,7 @@ Header(
         .global()
     ,
     // delay of 500ms before every trial
-    newTimer(500)
+    newTimer("timer1", 500)
         .start()
         .wait()
 )
@@ -108,7 +108,7 @@ Template("training.csv", row =>
     newTrial("training",
 
         // set up a timer so there is a x ms break between trials
-        newTimer(500)
+        newTimer("timer2", 500)
             .start()
             .wait()
         ,
@@ -135,7 +135,7 @@ Template("training.csv", row =>
             .success(newText("success", "<p>Correct!</p>").css("font-color", "green").center().print())
             .failure(newText("failure", "<p>Incorrect!</p>").css("font-color", "red").center().print())
         ,
-        newTimer(500)
+        newTimer("timer3", 500)
             .start()
             .wait()
     )
