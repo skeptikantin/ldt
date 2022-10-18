@@ -1,0 +1,9 @@
+﻿ExpId,ItmId,Item,Condition,Corr
+train,T1,pillow,word,J
+train,T2,frame,word,J
+train,T3,slirp,nonword,F
+train,T4,glri,nonword,F
+train,T5,rope,word,J
+train,T6,trolp,nonword,F
+train,T7,tree,word,J
+train,T8,pweo,nonword,F
