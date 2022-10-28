@@ -134,10 +134,10 @@ Template("training.csv", row =>
             .test.pressed(row.Corr)
             .success(newText("success", "<p>Correct!</p>").css("font-color", "green").print("center at 50%", "top at 55%"))
             .failure(newText("failure", "<p>Incorrect!</p>").css("font-color", "red").print("center at 50%", "top at 55%"))
-        /*,
+        ,
         newTimer("timer_train2", 500)
             .start()
-            .wait()*/
+            .wait()
     )
 // log info
         .log("ExpId", row.ExpId)
