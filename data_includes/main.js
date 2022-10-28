@@ -5,6 +5,9 @@
 PennController.ResetPrefix(null); // Shorten command names (keep this line here)
 PennController.DebugOff();
 
+// To do:
+//   Intro -- Times, not verdana (css.container?)
+
 
 // ## Prelims
 // A: Make sure the counter is reset at every new participant for more equal distribution,
@@ -40,7 +43,7 @@ Header(
         .global()
     ,
     // delay of 500ms before every trial
-    newTimer("timer1", 500)
+    newTimer("timer_header", 500)
         .start()
         .wait()
 )
@@ -57,11 +60,9 @@ newTrial("intro",
 
     newText("<p>Welcome!</p>")
         .css("font-size", "1.2em")
-        .css("font-family", "Verdana")
         .print()
     ,
     newText("<p><strong>Informed Consent</strong>:</p>")
-        .css("font-family", "Verdana")
         .print()
     ,
     newText("<p><strong>Voluntary participation:</strong> I understand that my participation in this study is voluntary.<br/>" +
@@ -69,17 +70,17 @@ newTrial("intro",
         "<strong>Risks:</strong> There are no risks involved.<br/>"+
         "<strong>Equipment:</strong> I am participating from a device with a <strong>physical keyboard</strong>.<br/>"+
         "<strong>Environment:</strong> I participate from a quiet environment and can work uninterrupted.</p>")
-        .css("font-family", "Verdana")
         .print()
     ,
     newText("<p>By hitting SPACE I consent to the above.")
-        .css("font-family", "Verdana")
         .print()
     ,
     newKey(" ")
         .log()
         .once()
         .wait()
+    ,
+    fullscreen()
 )
 
 newTrial("instructions",
@@ -88,7 +89,7 @@ newTrial("instructions",
         .css("font-size", "1.2em")
         .print()
     ,
-    newText("<p>Your task is to decide whether<br/>"+
+    newText("Instr", "<p>Your task is to decide whether<br/>"+
         "the word on the screen is a word of English or not.<br/></p>" +
         "<p>Please respond as quickly, but as accurately as possible.</p>" +
         "<p>Press the <b>J</b> key if <strong>the word is a word</strong> (think J resembles 'yes')<br/>and the <b>F</b> key if <strong>it is not a word</strong> (think F = 'false').</p>")
@@ -108,7 +109,7 @@ Template("training.csv", row =>
     newTrial("training",
 
         // set up a timer so there is a x ms break between trials
-        newTimer("timer2", 500)
+        newTimer("timer_train", 500)
             .start()
             .wait()
         ,
@@ -119,9 +120,8 @@ Template("training.csv", row =>
         // Show item
         newText("Item", row.Item)
             .css("font-size", "1.5em")
-            .css("font-family", "Verdana")
-            .center()
-            .print()
+            //.center()
+            .print("center at 50%", "top at 50%")
             .log()
         ,
         // Set up response buttons
@@ -132,12 +132,12 @@ Template("training.csv", row =>
         ,
         getKey("key")
             .test.pressed(row.Corr)
-            .success(newText("success", "<p>Correct!</p>").css("font-color", "green").center().print())
-            .failure(newText("failure", "<p>Incorrect!</p>").css("font-color", "red").center().print())
-        ,
-        newTimer("timer3", 500)
+            .success(newText("success", "<p>Correct!</p>").css("font-color", "green").print("center at 50%", "top at 55%"))
+            .failure(newText("failure", "<p>Incorrect!</p>").css("font-color", "red").print("center at 50%", "top at 55%"))
+        /*,
+        newTimer("timer_train2", 500)
             .start()
-            .wait()
+            .wait()*/
     )
 // log info
         .log("ExpId", row.ExpId)
@@ -154,11 +154,9 @@ newTrial("intermission",
     "<p>You are now going to do the same for 60 more words.<br/>(No feedback will be given.)</p>"+
     "<p>The experiment will pause after the 20th and the 40th word,<br/>" +
     "at which points you are welcome to take a break if you wish.</p>")
-        .css("font-family", "Verdana")
         .print()
     ,
     newText("<p>Please place your index fingers on the F and J keys, respectively,<br/>and press SPACE when you are ready to start the main experiment.</p>")
-        .css("font-family", "Verdana")
         .print()
     ,
     newKey(" ")
@@ -171,16 +169,15 @@ Template("lextale.csv", row =>
     newTrial("experiment",
 
         // set up a timer so there is a x ms break between trials
-        newTimer(500)
+        newTimer("timer_exp", 500)
             .start()
             .wait()
         ,
         // Show item
         newText("Item", row.Item)
             .css("font-size", "1.5em")
-            .css("font-family", "Verdana")
             .center()
-            .print()
+            .print("center at 50%", "top at 50%")
             .log()
         ,
         // set up the response buttons
@@ -198,9 +195,8 @@ Template("lextale.csv", row =>
     ,
     newTrial("break",
 
-        newText("<p>Well done, you've earned a little rest if you want.</p>" +
+        newText("<p>Well done, take a little rest if you want.</p>" +
             "Press SPACE to continue.")
-            .css("font-family", "Verdana")
             .print()
         ,
         newKey(" ")
@@ -213,28 +209,24 @@ newTrial("debrief",
 
     newText("<p>That's (almost) it, thank you!</p>")
         .css("font-size", "1.2em")
-        .css("font-family", "Verdana")
         .print()
     ,
     newText("<p><strong>Anything you'd like to tell us about your experience?</strong></p>")
-        .css("font-family", "Verdana")
         .print()
     ,
     newTextInput("topic", "")
         .settings.log()
         .settings.lines(0)
         .settings.size(400, 100)
-        .css("font-family", "Verdana")
         .print()
         .log()
     ,
     newText("<p>Please indicate your handedness (voluntary, but helpful for data analysis):</p>")
-        .css("font-family", "Verdana")
         .print()
     ,
     newScale("handedness", "right-handed", "left-handed", "no dominant hand", "rather not say")
-        .css("font-family", "Verdana")
         .settings.vertical()
+        .labelsPosition("right")
         .print()
         .log()
     ,
@@ -249,9 +241,11 @@ newTrial("debrief",
 SendResults()
 
 newTrial("goodbye",
+
+    exitFullscreen()
+    ,
     newText("<p>Thank you very much for your time and effort!</p>")
         .css("font-size", "1.2em")
-        .css("font-family", "Verdana")
         .print()
     ,
     newText("<strong><a href='https://app.prolific.co/submissions/complete?cc=8016C608'>Click here to return to Prolific to validate your participation.</a></strong>")
@@ -286,7 +280,8 @@ function SepWithN(sep, main, n) {
             let newArray = [];
             while (main.length){
                 for (let i = 0; i < n && main.length>0; i++)
-                    newArray.push(main.pop());
+                    // newArray.push(main.pop()); // default
+                    newArray.push(main.shift()); // if not randomized, avoid going backwards
                 for (let j = 0; j < sep.length; ++j)
                     newArray.push(sep[j]);
             }
